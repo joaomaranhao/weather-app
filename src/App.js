@@ -11,6 +11,7 @@ function App () {
   const [weekDay, setWeekDay] = useState('')
   const [formatedDate, setFormatedDay] = useState('')
   const [weather, setWeather] = useState('')
+  const [conditionCode, setConditionCode] = useState('')
 
   const fetchApi = async (city) => {
     const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city.replaceAll(' ', '%20')}&units=metric&appid=${apiKey}`)
@@ -19,6 +20,7 @@ function App () {
     await setWeekDay(timeStampToWeekDay(response.data.dt))
     await setFormatedDay(timeStampToFormatedDate(response.data.dt))
     await setWeather(response.data.weather[0].main)
+    await setConditionCode(response.data.weather[0].icon)
   }
 
   const timeStampToWeekDay = (UnixTimestamp) => {
@@ -42,13 +44,17 @@ function App () {
       <div className='app__container'>
         <div className='app__upContent'>
           <div className='app__currentWeather'>
-            <CurrentWeather
-              city={city}
-              temperature={temperature}
-              weekDay={weekDay}
-              formatedDate={formatedDate}
-              weather={weather}
-            />
+            {conditionCode !== ''
+              ? <CurrentWeather
+                  city={city}
+                  temperature={temperature}
+                  weekDay={weekDay}
+                  formatedDate={formatedDate}
+                  weather={weather}
+                  conditionCode={conditionCode}
+                />
+              : ''}
+
           </div>
           <div className='app__menu'>
             <MenuIcon fetchApi={fetchApi} />
