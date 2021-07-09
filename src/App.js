@@ -12,15 +12,23 @@ function App () {
   const [formatedDate, setFormatedDay] = useState('')
   const [weather, setWeather] = useState('')
   const [conditionCode, setConditionCode] = useState('')
+  const [cod, setCod] = useState(0)
+  const [apiCallError, setApiCallError] = useState(0)
 
   const fetchApi = async (city) => {
-    const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city.replaceAll(' ', '%20')}&units=metric&appid=${apiKey}`)
-    await setCity(response.data.name)
-    await setTemperature(response.data.main.temp.toFixed(0))
-    await setWeekDay(timeStampToWeekDay(response.data.dt))
-    await setFormatedDay(timeStampToFormatedDate(response.data.dt))
-    await setWeather(response.data.weather[0].main)
-    await setConditionCode(response.data.weather[0].icon)
+    try {
+      const response = await axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city.replaceAll(' ', '%20')}&units=metric&appid=${apiKey}`)
+      await setCity(response.data.name)
+      await setTemperature(response.data.main.temp.toFixed(0))
+      await setWeekDay(timeStampToWeekDay(response.data.dt))
+      await setFormatedDay(timeStampToFormatedDate(response.data.dt))
+      await setWeather(response.data.weather[0].main)
+      await setConditionCode(response.data.weather[0].icon)
+      await setCod(response.data.cod)
+      await setApiCallError(0)
+    } catch (e) {
+      await setApiCallError(1)
+    }
   }
 
   const timeStampToWeekDay = (UnixTimestamp) => {
@@ -44,7 +52,7 @@ function App () {
       <div className='app__container'>
         <div className='app__upContent'>
           <div className='app__currentWeather'>
-            {conditionCode !== ''
+            {cod === 200
               ? <CurrentWeather
                   city={city}
                   temperature={temperature}
@@ -54,10 +62,9 @@ function App () {
                   conditionCode={conditionCode}
                 />
               : ''}
-
           </div>
           <div className='app__menu'>
-            <MenuIcon fetchApi={fetchApi} />
+            <MenuIcon fetchApi={fetchApi} apiCallError={apiCallError} />
           </div>
 
         </div>

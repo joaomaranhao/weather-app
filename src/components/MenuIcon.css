@@ -98,10 +98,27 @@
   color: white;
 }
 
+.menu__searchInput > input::placeholder {
+  color: #ccc;
+}
+
 .menu__searchInput > button {
   display: none;
 }
 
 .hidden {
   display: none;
+}
+
+.menu__notFound {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.menu__notFound > h4 {
+  font-size: 20px;
+  color: #eee;
+  border-top: 1px solid #eee;
+  padding: 10px 0;
 }
