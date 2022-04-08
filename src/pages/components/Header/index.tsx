@@ -36,7 +36,9 @@ export const Header = ({ setInfo }) => {
           temp,
           condition
         })
+        event.target.reset()
       })
+      .catch(error => console.log(error))
   }
   return (
     <header className={styles.header}>
