@@ -1,0 +1,37 @@
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.today {
+  margin-top: 1.5rem;
+}
+
+.city {
+  font-size: 2rem;
+}
+
+.weather {
+  writing-mode: vertical-lr;
+  font-size: 2rem;
+  margin-top: 1.5rem;
+}
+
+.temperature {
+  position: relative;
+  font-size: 5rem;
+}
+
+.temperature span {
+  position: absolute;
+  top: 1.5rem;
+  font-size: 1.5rem;
+}
