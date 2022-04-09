@@ -1,13 +1,10 @@
-import { Header } from './components/Header'
 import { LiveWeather } from './components/LiveWeather'
 import styles from '../styles/Home.module.css'
-import { useEffect, useState } from 'react'
-import { getUserLocation } from '../services/api/ip-lookup'
-import { getCurrentWeather } from '../services/api/current-weather'
+import { useState } from 'react'
+import { Layout } from './components/Layout'
 
 export default function Home () {
-  const [city, setCity] = useState('')
-  const [info, setInfo] = useState(
+  const [data, setData] = useState(
     {
       date: '',
       city: '',
@@ -16,21 +13,11 @@ export default function Home () {
       condition: ''
     }
   )
-
-  useEffect(() => {
-    getUserLocation()
-      .then(response => {
-        setCity(response.data.city)
-        return getCurrentWeather(response.data.city.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
-      })
-      .then(info => setInfo(info))
-    }, [])
   return (
-    <>
+    <Layout setData={setData}>
       <div className={styles.container}>
-        <Header setInfo={setInfo} city={city} setCity={setCity} />
-        <LiveWeather info={info} />
+        <LiveWeather data={data} />
       </div>
-    </>
+    </Layout>
   )
 }
