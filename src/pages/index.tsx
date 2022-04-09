@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Layout } from '../components/Layout'
 
 export default function Home () {
+  const [option, setOption] = useState('weather')
   const [data, setData] = useState(
     {
       date: '',
@@ -14,9 +15,10 @@ export default function Home () {
     }
   )
   return (
-    <Layout setData={setData}>
+    <Layout setData={setData} setOption={setOption}>
       <div className={styles.container}>
-        <LiveWeather data={data} />
+        {option === 'weather' ? <LiveWeather data={data} /> : <div>Hey</div>}
+
       </div>
     </Layout>
   )

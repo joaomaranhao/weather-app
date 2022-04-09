@@ -1,26 +1,17 @@
-import Link from 'next/link'
 import styles from './Navbar.module.css'
 
-export const Navbar = () => {
+export const Navbar = ({ setOption }) => {
   return (
     <nav className={styles.nav}>
-      <Link href="/">
-      <a className={styles.link}>
+      <button className={styles.option}>
         Today
-      </a>
-      </Link>
-
-      <Link href="/">
-        <a className={styles.link}>
+      </button>
+        <button className={styles.option}>
           Tomorrow
-        </a>
-      </Link>
-
-      <Link href="/">
-        <a className={styles.link}>
+        </button>
+        <button className={styles.option}>
           6 Days
-        </a>
-      </Link>
+        </button>
     </nav>
   )
 }
