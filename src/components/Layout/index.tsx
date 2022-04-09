@@ -5,7 +5,7 @@ import { Header } from '../Header'
 import { Navbar } from '../Navbar'
 import styles from './Layout.module.css'
 
-export const Layout = ({ children, setData, setOption }) => {
+export const Layout = ({ children, setData, option, setOption }) => {
   const [city, setCity] = useState('')
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export const Layout = ({ children, setData, setOption }) => {
   return (
     <div className={styles.container}>
     <Header setInfo={setData} city={city} setCity={setCity} />
-    <Navbar setOption={setOption} />
+    <Navbar option={option} setOption={setOption} />
     {children}
     </div>
   )

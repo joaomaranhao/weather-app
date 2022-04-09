@@ -2,9 +2,10 @@ import { LiveWeather } from '../components/LiveWeather'
 import styles from '../styles/Home.module.css'
 import { useState } from 'react'
 import { Layout } from '../components/Layout'
+import { FutureWeather } from '../components/FutureWeather'
 
 export default function Home () {
-  const [option, setOption] = useState('weather')
+  const [option, setOption] = useState('today')
   const [data, setData] = useState(
     {
       date: '',
@@ -15,10 +16,9 @@ export default function Home () {
     }
   )
   return (
-    <Layout setData={setData} setOption={setOption}>
+    <Layout setData={setData} option={option} setOption={setOption}>
       <div className={styles.container}>
-        {option === 'weather' ? <LiveWeather data={data} /> : <div>Hey</div>}
-
+        {option !== '6days' ? <LiveWeather data={data} /> : <FutureWeather />}
       </div>
     </Layout>
   )
