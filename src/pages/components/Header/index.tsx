@@ -22,7 +22,7 @@ export const Header = ({ setInfo }) => {
 
   function handleSubmit (event: any): void {
     event.preventDefault()
-    getCurrentWeather(city)
+    getCurrentWeather(city.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
       .then(result => {
         const date = formatDate(new Date(result.data.location.localtime))
         const city = result.data.location.name
