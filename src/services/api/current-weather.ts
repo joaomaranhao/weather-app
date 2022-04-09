@@ -1,6 +1,7 @@
 import axios from 'axios'
+import weatherApi from '../../credentials/weather-api.json'
 
-const apiKey = '997b278006594208b83182733220804'
+const apiKey = weatherApi.apikey
 const baseUrl = 'http://api.weatherapi.com/v1'
 
 export const getCurrentWeather = (city: string) => {

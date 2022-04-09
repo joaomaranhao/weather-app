@@ -30,3 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# credentials
+/src/credentials/weather-api.json
