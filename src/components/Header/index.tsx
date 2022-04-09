@@ -1,7 +1,7 @@
 import { FiSearch } from 'react-icons/fi'
 import styles from './Header.module.css'
 
-import { getCurrentWeather } from '../../../services/api/current-weather'
+import { getCurrentWeather } from '../../services/api/current-weather'
 
 export const Header = ({ setInfo, city, setCity }) => {
   function handleChange (event: any): void {

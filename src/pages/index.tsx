@@ -1,7 +1,7 @@
-import { LiveWeather } from './components/LiveWeather'
+import { LiveWeather } from '../components/LiveWeather'
 import styles from '../styles/Home.module.css'
 import { useState } from 'react'
-import { Layout } from './components/Layout'
+import { Layout } from '../components/Layout'
 
 export default function Home () {
   const [data, setData] = useState(
