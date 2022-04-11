@@ -4,8 +4,8 @@ export const Navbar = ({ setOption, option }) => {
   return (
     <nav className={styles.nav}>
       <button className={styles.option} onClick={() => {
-        if (option !== 'today') {
-          setOption('today')
+        if (option !== 'live') {
+          setOption('live')
         }
       }}>
         Today
