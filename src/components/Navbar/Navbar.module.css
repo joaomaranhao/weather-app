@@ -17,7 +17,16 @@
 }
 
 .option:hover {
-  border-bottom: 2px solid #444;
+  border-bottom: 2px solid #aaa;
 }
 
+.active {
+  border-bottom: 2px solid #444;
+  
+}
+
+.active:hover {
+  cursor: default;
+  border-bottom: 2px solid #444;
+}
 

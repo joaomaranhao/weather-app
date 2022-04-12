@@ -5,7 +5,7 @@ import styles from './Navbar.module.css'
 export const Navbar = ({ city, setOption, option, setData }) => {
   return (
     <nav className={styles.nav}>
-      <button className={styles.option} onClick={() => {
+      <button className={option === 'live' ? `${styles.active} ${styles.option}` : `${styles.option}`} onClick={() => {
         if (option !== 'live') {
           setOption('live')
           getCurrentWeather(city)
@@ -14,7 +14,7 @@ export const Navbar = ({ city, setOption, option, setData }) => {
       }}>
         Today
       </button>
-        <button className={styles.option} onClick={() => {
+        <button className={option === 'tomorrow' ? `${styles.active} ${styles.option}` : `${styles.option}`} onClick={() => {
         if (option !== 'tomorrow') {
           setOption('tomorrow')
           getTomorrowWeather(city)
@@ -23,7 +23,7 @@ export const Navbar = ({ city, setOption, option, setData }) => {
       }}>
           Tomorrow
         </button>
-        <button className={styles.option} onClick={() => {
+        <button className={option === '6days' ? `${styles.active} ${styles.option}` : `${styles.option}`} onClick={() => {
         if (option !== '6days') {
           setOption('6days')
         }
