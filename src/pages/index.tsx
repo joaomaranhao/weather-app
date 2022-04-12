@@ -15,12 +15,16 @@ export default function Home () {
 
   useEffect(() => {
     getUserLocation()
-      .then(response => {
-        setCity(response.data.city)
-        return getCurrentWeather(response.data.city.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
-      })
-      .then(data => setData(data))
-    }, [setData])
+    .then(response => {
+      const city = response.data.city.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      setCity(city)
+      return city
+    })
+    .then(city => getCurrentWeather(city))
+    .then(data => setData(data))
+    .catch(error => console.log(error))
+  }, [])
+
   return (
     <Layout
     setData={setData}

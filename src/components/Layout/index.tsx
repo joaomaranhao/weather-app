@@ -6,7 +6,7 @@ export const Layout = ({ children, setData, option, setOption, city, setCity }) 
   return (
     <div className={styles.container}>
     <Header setInfo={setData} city={city} setCity={setCity} />
-    <Navbar option={option} setOption={setOption} />
+    <Navbar city={city} setData={setData} option={option} setOption={setOption} />
     {children}
     </div>
   )
