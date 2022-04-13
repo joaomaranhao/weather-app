@@ -10,6 +10,7 @@ export const Navbar = ({ city, setOption, option, setData }) => {
           setOption('live')
           getCurrentWeather(city)
             .then(data => setData(data))
+            .catch(error => console.log(error.message, '\nCould not find that city.'))
         }
       }}>
         Today
@@ -19,6 +20,7 @@ export const Navbar = ({ city, setOption, option, setData }) => {
           setOption('tomorrow')
           getTomorrowWeather(city)
             .then(data => setData(data))
+            .catch(error => console.log(error.message, '\nCould not find that city.'))
         }
       }}>
           Tomorrow

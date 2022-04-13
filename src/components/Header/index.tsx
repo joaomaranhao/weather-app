@@ -3,7 +3,7 @@ import styles from './Header.module.css'
 
 import { getCurrentWeather } from '../../services/api/current-weather'
 
-export const Header = ({ setInfo, city, setCity }) => {
+export const Header = ({ setInfo, city, setCity, setOption }) => {
   function handleChange (event: any): void {
     setCity(event.target.value)
   }
@@ -13,6 +13,7 @@ export const Header = ({ setInfo, city, setCity }) => {
     getCurrentWeather(city.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
       .then(result => {
       setInfo(result)
+      setOption('live')
       event.target.reset()
       })
 
