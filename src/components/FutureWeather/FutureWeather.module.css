@@ -1,0 +1,51 @@
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.location {
+  margin-top: 3rem;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.city {
+  font-size: 2rem;
+}
+
+
+.day {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.day > div {
+  display: flex;
+  align-items: center;
+  filter: saturate(0);
+}
+
+.day > div > p {
+  font-size: 1.5rem;
+  margin-right: 2rem;
+}
+
+.temp {
+  font-size: 5rem;
+}
+
+.min {
+  display: inline-block;
+  margin-right: 3rem;
+}
+

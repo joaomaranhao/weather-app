@@ -19,6 +19,7 @@ import CityHighway from '../../public/images/backgrounds/City-Highway.svg'
 export default function Home () {
   const [option, setOption] = useState('live')
   const [data, setData] = useState<ICurrentWeatherData | undefined>(undefined)
+  const [forecastData, setForecastData] = useState(undefined)
   const [city, setCity] = useState('')
   const [image, setImage] = useState('')
 
@@ -35,7 +36,7 @@ export default function Home () {
   }, [])
 
  useEffect(() => {
-   if (data) {
+   if (data && data.condition) {
      if (data.condition.toLowerCase().includes('sunny')) {
       setImage(Beach)
      } else if (data.condition.toLowerCase().includes('clear')) {
@@ -59,6 +60,7 @@ export default function Home () {
     setOption={setOption}
     city={city}
     setCity={setCity}
+    setForecastData={setForecastData}
     >
       <div className={styles.container}>
         <div className={styles.bg}>
@@ -67,6 +69,7 @@ export default function Home () {
           alt='Beach'
           src={image}
           layout='fill'
+          priority
           />
 : ''
 
@@ -75,7 +78,7 @@ export default function Home () {
         <div className={styles.content}>
           {option === 'live' && data ? <LiveWeather data={data} /> : null}
           {option === 'tomorrow' && data ? <LiveWeather data={data} /> : null}
-          {option === '6days' && data ? <FutureWeather /> : null}
+          {option === '6days' && data ? <FutureWeather data={data} forecastData={forecastData} /> : null}
         </div>
       </div>
     </Layout>

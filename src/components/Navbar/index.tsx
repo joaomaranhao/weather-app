@@ -1,8 +1,9 @@
 import { getCurrentWeather } from '../../services/api/current-weather'
+import { getThreeDaysForecast } from '../../services/api/three-days'
 import { getTomorrowWeather } from '../../services/api/tomorrow-weather'
 import styles from './Navbar.module.css'
 
-export const Navbar = ({ city, setOption, option, setData }) => {
+export const Navbar = ({ city, setOption, option, setData, setForecastData }) => {
   return (
     <nav className={styles.nav}>
       <button className={option === 'live' ? `${styles.active} ${styles.option}` : `${styles.option}`} onClick={() => {
@@ -28,9 +29,12 @@ export const Navbar = ({ city, setOption, option, setData }) => {
         <button className={option === '6days' ? `${styles.active} ${styles.option}` : `${styles.option}`} onClick={() => {
         if (option !== '6days') {
           setOption('6days')
+          getThreeDaysForecast(city)
+            .then(data => setForecastData(data))
+            .catch(error => console.log(error.message, '\nCould not find that city.'))
         }
       }}>
-          6 Days
+          3 Days
         </button>
     </nav>
   )
