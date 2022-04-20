@@ -14,7 +14,7 @@ import Campfire from '../../public/images/backgrounds/Campfire.svg'
 import EuropeVillage from '../../public/images/backgrounds/Europe-Village.svg'
 import Winter from '../../public/images/backgrounds/Winter.svg'
 import Suburb from '../../public/images/backgrounds/Suburb.svg'
-import CityHighway from '../../public/images/backgrounds/City-Highway.svg'
+import CityHighway from '../../public/images/backgrounds/City-highway.svg'
 
 export default function Home () {
   const [option, setOption] = useState('live')
