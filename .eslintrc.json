@@ -21,6 +21,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-      "indent": "off"
+      "indent": "off",
+      "@next/next/no-img-element": "off"
     }
 }

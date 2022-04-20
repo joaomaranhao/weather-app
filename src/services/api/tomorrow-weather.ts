@@ -1,9 +1,6 @@
 import axios from 'axios'
-import weatherApi from '../../credentials/weather-api.json'
+import { apiKey, baseUrl } from './weather-api'
 import { formatDate } from '../helpers/formatDate'
-
-const apiKey = weatherApi.apikey
-const baseUrl = 'http://api.weatherapi.com/v1'
 
 export const getTomorrowWeather = async (city: string) => {
   const result = await axios.get(`${baseUrl}/forecast.json?key=${apiKey}&q=${city}&days=2&aqui=no`)

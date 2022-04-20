@@ -1,9 +1,6 @@
 import axios from 'axios'
-import weatherApi from '../../credentials/weather-api.json'
 import { formatDate } from '../helpers/formatDate'
-
-const apiKey = weatherApi.apikey
-const baseUrl = 'http://api.weatherapi.com/v1'
+import { apiKey, baseUrl } from './weather-api'
 
 export const getCurrentWeather = async (city: string) => {
   if (city) {
