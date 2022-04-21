@@ -1,7 +1,7 @@
 <h1 align="center">João Maranhão | Desenvolvedor</h1>
 
 <div align="center">
-   O site pode ser acessado aqui: <a href="https://www.joaomaranhao.com.br" target="_blank">Weather-app</a>
+   O site pode ser acessado aqui: <a href="https://weather-app-joaomaranhao.vercel.app/" target="_blank">Weather-app</a>
 </div>
 
 ## Índice
